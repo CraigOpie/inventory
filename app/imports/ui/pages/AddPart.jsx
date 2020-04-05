@@ -44,11 +44,11 @@ class AddPart extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Add Part</Header>
-            <AutoForm ref={ref => { fRef = ref; }} schema={formSchema} onSubmit={data => this.submit(data, fRef)} >
+            <AutoForm ref={ref => { fRef = ref; }} schema={ formSchema } onSubmit={ data => this.submit(data, fRef) } >
               <Segment>
                 <TextField name='name'/>
                 <TextField name='value'/>
-                <NumField name='quantity' decimal={false}/>
+                <NumField name='quantity' decimal={ false }/>
                 <TextField name='location'/>
                 <TextField name='image'/>
                 <TextField name='manpartnum'/>

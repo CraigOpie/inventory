@@ -1,24 +1,26 @@
 import React from 'react';
-import { Table } from 'semantic-ui-react';
+import { Card, Image } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 
-/** Renders a single row in the List Stuff table. See pages/ListPart.jsx. */
+/** Renders a single card in the List Part. */
 class PartItem extends React.Component {
   render() {
     return (
-        <Table.Row>
-          <Table.Cell>{this.props.part.name}</Table.Cell>
-          <Table.Cell>{this.props.part.value}</Table.Cell>
-          <Table.Cell>{this.props.part.quantity}</Table.Cell>
-          <Table.Cell>{this.props.part.location}</Table.Cell>
-          <Table.Cell>{this.props.part.image}</Table.Cell>
-          <Table.Cell>{this.props.part.manpartnum}</Table.Cell>
-          <Table.Cell>{this.props.part.digipartnum}</Table.Cell>
-          <Table.Cell>
-            <Link to={`/edit/${this.props.part._id}`}>Edit</Link>
-          </Table.Cell>
-        </Table.Row>
+        <Card centered>
+          <Card.Content>
+            <Image
+              size='large'
+              src={ this.props.part.image }
+            />
+            <Card.Header textAlign="center">
+              { this.props.part.name } - { this.props.part.value }
+            </Card.Header>
+          </Card.Content>
+          <Card.Content extra>
+            <Link to={`/edit/${ this.props.part._id }`}>Edit</Link>
+          </Card.Content>
+        </Card>
     );
   }
 }

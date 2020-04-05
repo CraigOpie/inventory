@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import { Parts } from '../../api/part/Part';
 import PartItemAdmin from '../components/PartItemAdmin';
 
-/** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
+/** Renders a table containing all of the Part documents. Use <PartItem> to render each card. */
 class ListPartAdmin extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
@@ -41,7 +41,7 @@ class ListPartAdmin extends React.Component {
   }
 }
 
-/** Require an array of Stuff documents in the props. */
+/** Require an array of Part documents in the props. */
 ListPartAdmin.propTypes = {
   parts: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -49,7 +49,7 @@ ListPartAdmin.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to Part documents.
   const subscription = Meteor.subscribe('PartAdmin');
   return {
     parts: Parts.find({}).fetch(),
