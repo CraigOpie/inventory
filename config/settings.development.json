@@ -1,13 +1,41 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "email": "admin@deathstardev.com", "password": "changeme", "role": "admin" },
+    { "email": "craig@deathstardev.com", "password": "changeme" }
   ],
 
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    {
+      "name": "Resistor",
+      "value": "1K",
+      "quantity": 3,
+      "location": "POST518",
+      "image": "https://media.digikey.com/Renders/Panasonic%20Renders/ERJ-2512%20Pkg.jpg",
+      "manpartnum": "ERJ-1TYF102U",
+      "digipartnum": "PT1KAECT-ND",
+      "owner": "craig@deathstardev.com"
+    },
+
+    {
+      "name": "Resistor",
+      "value": "2K",
+      "quantity": 3,
+      "location": "POST518",
+      "image": "https://media.digikey.com/photos/Susumu%20Photos/RR%200805%20SERIES.jpg",
+      "manpartnum": "RR1220P-202-D",
+      "digipartnum": "RR12P2.0KDCT-ND",
+      "owner": "craig@deathstardev.com"
+    },
+
+    {
+      "name": "Resistor",
+      "value": "5K",
+      "quantity": 3,
+      "location": "POST518",
+      "image": "https://media.digikey.com/Renders/Yageo%20Renders/1206-(3216-Metric).jpg",
+      "manpartnum": "RT1206BRD075KL",
+      "digipartnum": "YAG5090CT-ND",
+      "owner": "admin@deathstardev.com"
+    }
   ]
 }

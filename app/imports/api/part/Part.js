@@ -3,22 +3,22 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** Define a Mongo collection to hold the data. */
-const Stuffs = new Mongo.Collection('Stuffs');
+const Parts = new Mongo.Collection('Parts');
 
 /** Define a schema to specify the structure of each document in the collection. */
-const StuffSchema = new SimpleSchema({
+const PartSchema = new SimpleSchema({
   name: String,
+  value: String,
   quantity: Number,
+  location: String,
+  image: String,
+  manpartnum: String,
+  digipartnum: String,
   owner: String,
-  condition: {
-    type: String,
-    allowedValues: ['excellent', 'good', 'fair', 'poor'],
-    defaultValue: 'good',
-  },
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
-Stuffs.attachSchema(StuffSchema);
+Parts.attachSchema(PartSchema);
 
 /** Make the collection and schema available to other code. */
-export { Stuffs, StuffSchema };
+export { Parts, PartSchema };
