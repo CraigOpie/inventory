@@ -11,6 +11,7 @@ import ListPart from '../pages/ListPart';
 import ListPartAdmin from '../pages/ListPartAdmin';
 import AddPart from '../pages/AddPart';
 import EditPart from '../pages/EditPart';
+import UpdatePart from '../pages/UpdatePart';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -30,6 +31,7 @@ class App extends React.Component {
               <ProtectedRoute path="/list" component={ListPart}/>
               <ProtectedRoute path="/add" component={AddPart}/>
               <ProtectedRoute path="/edit/:_id" component={EditPart}/>
+              <ProtectedRoute path="/update/:_id" component={UpdatePart}/>
               <AdminProtectedRoute path="/admin" component={ListPartAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <Route component={NotFound}/>
