@@ -14,8 +14,10 @@ class UpdatePart extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { name, value, quantity, location, image, manpartnum, digipartnum, _id } = data;
-    Parts.update(_id, { $set: { name, value, quantity, location, image, manpartnum, digipartnum } },
+    const { name, value, quantity, par, maxOnHand, location, container, group, image, manufacturerPartNumber,
+      digiKeyPartNumber, productDescription, _id } = data;
+    Parts.update(_id, { $set: { name, value, quantity, par, maxOnHand, location, container, group, image,
+            manufacturerPartNumber, digiKeyPartNumber, productDescription } },
         (error) => (swal('Error', error.message, 'error')));
   }
 
@@ -32,7 +34,7 @@ class UpdatePart extends React.Component {
             <Header as="h2" textAlign="center">Update Part</Header>
             <Card.Group>
               { this.props.parts.filter(part => part._id === this.props.doc._id).map((part) => <UpdatePartItem
-                  key={ part._id } part={ part } />) }
+                  key={ part._id } part={ part } Parts ={ Parts }/>) }
             </Card.Group>
             <AutoForm align='center' schema={PartSchema} onSubmit={data => this.submit(data)}
                       model={this.props.doc}>
@@ -40,10 +42,15 @@ class UpdatePart extends React.Component {
                 <HiddenField name='name'/>
                 <HiddenField name='value'/>
                 <NumField name='quantity' decimal={false}/>
+                <HiddenField name='par'/>
+                <HiddenField name='maxOnHand'/>
                 <HiddenField name='location'/>
+                <HiddenField name='container'/>
+                <HiddenField name='group'/>
                 <HiddenField name='image'/>
-                <HiddenField name='manpartnum'/>
-                <HiddenField name='digipartnum'/>
+                <HiddenField name='manufacturerPartNumber'/>
+                <HiddenField name='digiKeyPartNumber'/>
+                <HiddenField name='productDescription'/>
                 <Button type='submit' color='green'>Update</Button>
                 <ErrorsField/>
                 <HiddenField name='owner' />

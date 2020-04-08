@@ -5,7 +5,7 @@ import { Parts } from '../../api/part/Part.js';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding: ${data.name} (${data.group} - ${data.owner})`);
   Parts.insert(data);
 }
 

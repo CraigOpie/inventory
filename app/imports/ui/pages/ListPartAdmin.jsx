@@ -25,10 +25,14 @@ class ListPartAdmin extends React.Component {
                 <Table.HeaderCell>Name</Table.HeaderCell>
                 <Table.HeaderCell>Value</Table.HeaderCell>
                 <Table.HeaderCell>Quantity</Table.HeaderCell>
+                <Table.HeaderCell>Par</Table.HeaderCell>
                 <Table.HeaderCell>Location</Table.HeaderCell>
+                <Table.HeaderCell>Container</Table.HeaderCell>
+                <Table.HeaderCell>Group</Table.HeaderCell>
                 <Table.HeaderCell>Image</Table.HeaderCell>
                 <Table.HeaderCell>Manufacturer Part No.</Table.HeaderCell>
                 <Table.HeaderCell>DigiKey Part No.</Table.HeaderCell>
+                <Table.HeaderCell>Product Description</Table.HeaderCell>
                 <Table.HeaderCell>Owner</Table.HeaderCell>
               </Table.Row>
             </Table.Header>

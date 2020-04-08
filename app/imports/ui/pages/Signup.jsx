@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Link, Redirect } from 'react-router-dom';
-import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
+import { Container, Dropdown, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
 
 /**
@@ -21,8 +21,8 @@ class Signup extends React.Component {
 
   /** Handle Signup submission. Create user account and a profile entry, then redirect to the home page. */
   submit = () => {
-    const { email, password } = this.state;
-    Accounts.createUser({ email, username: email, password }, (err) => {
+    const { email, password, group } = this.state;
+    Accounts.createUser({ email, username: email, password, group }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {
@@ -34,6 +34,7 @@ class Signup extends React.Component {
   /** Display the signup form. Redirect to add page after successful registration and login. */
   render() {
     const { from } = this.props.location.state || { from: { pathname: '/add' } };
+    const groups = [{ key: 'hsfl', text: 'hsfl', value: 'hsfl' }];
     // if correct authentication, redirect to from: page instead of signup screen
     if (this.state.redirectToReferer) {
       return <Redirect to={from}/>;
@@ -65,6 +66,7 @@ class Signup extends React.Component {
                   type="password"
                   onChange={this.handleChange}
                 />
+                <Dropdown name="group" placeholder='Select Organization' fluid selection options={groups}/>
                 <Form.Button content="Submit"/>
               </Segment>
             </Form>

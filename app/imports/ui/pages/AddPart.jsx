@@ -12,10 +12,15 @@ const formSchema = new SimpleSchema({
   name: String,
   value: String,
   quantity: Number,
+  par: Number,
+  maxOnHand: Number,
   location: String,
+  container: String,
+  group: String,
   image: String,
-  manpartnum: String,
-  digipartnum: String,
+  manufacturerPartNumber: String,
+  digiKeyPartNumber: String,
+  productDescription: String,
   owner: String,
 });
 
@@ -24,9 +29,11 @@ class AddPart extends React.Component {
 
   /** On submit, insert the data. */
   submit(data, formRef) {
-    const { name, value, quantity, location, image, manpartnum, digipartnum } = data;
+    const { name, value, quantity, par, maxOnHand, location, container, group, image, manufacturerPartNumber,
+      digiKeyPartNumber, productDescription } = data;
     const owner = Meteor.user().username;
-    Parts.insert({ name, value, quantity, location, image, manpartnum, digipartnum, owner },
+    Parts.insert({ name, value, quantity, par, maxOnHand, location, container, group, image, manufacturerPartNumber,
+          digiKeyPartNumber, productDescription, owner },
       (error) => {
         if (error) {
           swal('Error', error.message, 'error');
@@ -49,10 +56,15 @@ class AddPart extends React.Component {
                 <TextField name='name'/>
                 <TextField name='value'/>
                 <NumField name='quantity' decimal={ false }/>
+                <NumField name='par' decimal={ false }/>
+                <NumField name='maxOnHand' decimal={ false }/>
                 <TextField name='location'/>
+                <TextField name='container'/>
+                <TextField name='group' placeholder='hsfl'/>
                 <TextField name='image'/>
-                <TextField name='manpartnum'/>
-                <TextField name='digipartnum'/>
+                <TextField name='manufacturerPartNumber'/>
+                <TextField name='digiKeyPartNumber'/>
+                <TextField name='productDescription' />
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
               </Segment>

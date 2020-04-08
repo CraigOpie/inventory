@@ -5,8 +5,8 @@ import { Parts } from '../../api/part/Part';
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Part', function publish() {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).username;
-    return Parts.find({ owner: username });
+    const groups = Meteor.users.findOne(this.userId).profile.group;
+    return Parts.find({ group: groups });
   }
   return this.ready();
 });

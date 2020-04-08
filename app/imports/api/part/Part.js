@@ -10,10 +10,15 @@ const PartSchema = new SimpleSchema({
   name: String,
   value: String,
   quantity: Number,
+  par: Number,
+  maxOnHand: Number,
   location: String,
+  container: String,
+  group: String,
   image: String,
-  manpartnum: String,
-  digipartnum: String,
+  manufacturerPartNumber: String,
+  digiKeyPartNumber: String,
+  productDescription: String,
   owner: String,
 }, { tracker: Tracker });
 

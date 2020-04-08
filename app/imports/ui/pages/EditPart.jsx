@@ -13,8 +13,10 @@ class EditPart extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { name, value, quantity, location, image, manpartnum, digipartnum, _id } = data;
-    Parts.update(_id, { $set: { name, value, quantity, location, image, manpartnum, digipartnum } }, (error) => (error ?
+    const { name, value, quantity, par, maxOnHand, location, container, group, image, manufacturerPartNumber,
+      digiKeyPartNumber, productDescription, _id } = data;
+    Parts.update(_id, { $set: { name, value, quantity, par, maxOnHand, location, container, group, image,
+        manufacturerPartNumber, digiKeyPartNumber, productDescription } }, (error) => (error ?
       swal('Error', error.message, 'error') :
       swal('Success', 'Item updated successfully', 'success')));
   }
@@ -34,11 +36,16 @@ class EditPart extends React.Component {
               <Segment>
                 <TextField name='name'/>
                 <TextField name='value'/>
-                <NumField name='quantity' decimal={false}/>
+                <NumField name='quantity' decimal={ false }/>
+                <NumField name='par' decimal={ false }/>
+                <NumField name='maxOnHand' decimal={ false }/>
                 <TextField name='location'/>
+                <TextField name='container'/>
+                <TextField name='group'/>
                 <TextField name='image'/>
-                <TextField name='manpartnum'/>
-                <TextField name='digipartnum'/>
+                <TextField name='manufacturerPartNumber'/>
+                <TextField name='digiKeyPartNumber'/>
+                <TextField name='productDescription'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' />
